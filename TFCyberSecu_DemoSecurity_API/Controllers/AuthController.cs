@@ -30,7 +30,7 @@ namespace TFCyberSecu_DemoSecurity_API.Controllers
             {
                 return BadRequest();
             }
-            _userService.Register(dto.Nickname, dto.Pwd, dto.Email);
+            _userService.Register(dto.Nickname, dto.Password, dto.Email);
             return Ok();
         }
 

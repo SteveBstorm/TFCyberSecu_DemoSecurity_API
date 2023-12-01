@@ -11,6 +11,6 @@ namespace TFCyberSecu_DemoSecurity_API.Models
         public string Email { get; set; }
         [Required(ErrorMessage ="Password Manquant")]
         [DataType(DataType.Password)]
-        public string Pwd { get; set; }
+        public string Password { get; set; }
     }
 }
