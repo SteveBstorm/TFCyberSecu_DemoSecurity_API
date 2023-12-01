@@ -26,6 +26,7 @@ builder.Services.AddScoped<IUserBLLService, UserBLLService>();
 builder.Services.AddScoped<JwtGenerator>();
 
 builder.Services.AddScoped<IArticleRepository, ArticleService>();
+builder.Services.AddScoped<IArticleBLLService, ArticleBLLService>();
 
 #endregion
 

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoSecurity_DAL.Interface
+namespace DemoSecurity_BLL.Interface
 {
-    public interface IArticleRepository
+    public interface IArticleBLLService
     {
         Task Create(Article article);
         IEnumerable<Article> GetAll();

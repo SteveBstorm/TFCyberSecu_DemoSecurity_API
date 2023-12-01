@@ -7,5 +7,7 @@ namespace DemoSecurity_BLL.Interface
         void Register(string nickname, string password, string email);
         User Login(string email, string password);
         IEnumerable<User> GetUsers();
+        void SetAdmin(int id);
+        
     }
 }

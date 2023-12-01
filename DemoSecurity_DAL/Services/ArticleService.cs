@@ -40,5 +40,10 @@ namespace DemoSecurity_DAL.Services
             _connection.Execute(sql, article);
            
         }
+
+        public void Delete(int id)
+        {
+            _connection.Execute("DELETE FROM Article WHERE Id = @id", new { id });
+        }
     }
 }

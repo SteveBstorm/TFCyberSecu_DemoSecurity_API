@@ -60,6 +60,21 @@ namespace TFCyberSecu_DemoSecurity_API.Controllers
             return Ok(_userService.GetUsers());
         }
 
+        [Authorize("adminPolicy")]
+        [HttpPatch("setAdmin/{id}")]
+        public IActionResult SetUserAsAdmin(int id)
+        {
+            try
+            {
+                _userService.SetAdmin(id);
+                return Ok();
+            }
+            catch(InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
        
     }
 }

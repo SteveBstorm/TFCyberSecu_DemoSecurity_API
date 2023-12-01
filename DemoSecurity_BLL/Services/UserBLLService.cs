@@ -41,5 +41,12 @@ namespace DemoSecurity_BLL.Services
         {
             return _userRepo.GetUsers();
         }
+
+        public void SetAdmin(int id)
+        {
+            if (_userRepo.CheckIsAdmin(id))
+                throw new InvalidOperationException("Utilisateur déjà admin");
+            _userRepo.SetAdmin(id);
+        }
     }
 }

@@ -43,5 +43,17 @@ namespace DemoSecurity_DAL.Services
         {
             return _connection.Query<User>("SELECT * FROM Users");
         }
+
+        public void SetAdmin(int id)
+        {
+            string sql = "UPDATE Users SET IsAdmin = 1 WHERE Id = @id";
+            _connection.Execute(sql, new { id });
+        }
+
+        public bool CheckIsAdmin(int id)
+        {
+            string sql = "SELECT IsAdmin FROM Users WHERE Id = @id";
+            return _connection.QueryFirst<bool>(sql, new { id });
+        }
     }
 }

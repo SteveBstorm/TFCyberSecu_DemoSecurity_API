@@ -8,5 +8,7 @@ namespace DemoSecurity_DAL.Interface
         IEnumerable<User> GetUsers();
         User Login(string email);
         void Register(string nickname, string password, string email);
+        void SetAdmin(int id);
+        bool CheckIsAdmin(int id);
     }
 }
