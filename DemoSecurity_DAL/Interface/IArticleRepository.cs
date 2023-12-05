@@ -13,5 +13,6 @@ namespace DemoSecurity_DAL.Interface
         IEnumerable<Article> GetAll();
         Article GetById(int id);
         void Delete(int id);
+        void Update(Article article);
     }
 }

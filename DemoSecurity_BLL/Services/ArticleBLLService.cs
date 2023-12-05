@@ -37,5 +37,10 @@ namespace DemoSecurity_BLL.Services
         {
             return _articleRepo.GetById(id);
         }
+
+        public void Update(Article article)
+        {
+            _articleRepo.Update(article);
+        }
     }
 }

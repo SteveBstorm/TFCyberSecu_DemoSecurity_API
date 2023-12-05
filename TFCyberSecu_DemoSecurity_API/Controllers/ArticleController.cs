@@ -1,4 +1,5 @@
 ﻿using DemoSecurity_BLL.Interface;
+using DemoSecurity_DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +33,7 @@ namespace TFCyberSecu_DemoSecurity_API.Controllers
             if(!ModelState.IsValid) return BadRequest(dto);
 
             _articleBLLService.Create(dto.ToBLL());
-            return Ok("Creation OK");
+            return Ok();
         }
 
         [Authorize("adminPolicy")]
@@ -43,6 +44,28 @@ namespace TFCyberSecu_DemoSecurity_API.Controllers
             return Ok();
         }
 
+        [Authorize("adminPolicy")]
+        [HttpPatch("{id}")]
+        public IActionResult Update([FromBody]ArticleFormDTO dto, [FromRoute]int id)
+        {
+            if(!ModelState.IsValid)
+            { return BadRequest(dto); }
+            
+            _articleBLLService.Update(new Article
+            {
+                Id = id,
+                Nom = dto.Nom,
+                Description = dto.Description,
+                Prix = dto.Prix,
+                Categorie = dto.Categorie
+            });
+            return Ok();
+        }
 
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            return Ok(_articleBLLService.GetById(id));
+        }
     }
 }
